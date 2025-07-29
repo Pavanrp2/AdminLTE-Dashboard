@@ -1,0 +1,78 @@
+<!-- Icons Navbar -->
+<div class="navbar bg-light p-2 shadow mb-4">
+    <div class="content-wrapper d-flex gap-4 flex-nowrap overflow-auto">
+        <div class="icons d-flex flex-column align-items-center justify-content-center" 
+        *ngFor="let icon of navbarIcons; let i = index"
+        [class.active] = "i === activeIconIndex"
+        (click) = "activeIconIndex = i">
+    
+            <div class="image">
+                <img [src]="icon.icon_url_display" alt="">
+            </div>
+            <div class="title">
+                <p class="name lh-lg m-0">{{icon.icon_name}}</p>
+            </div>
+        </div>
+    </div>
+    <div class="button d-flex flex-column justify-content-center align-items-center ps-2" (click)="showMore()">
+        <i class="bi bi-three-dots-vertical"></i>
+        <span>More</span>
+    </div>
+</div>
+
+<!-- Popup More Option -->
+<div class="moreOption bg-light" > <!-- *ngIf="moreOptions" -->
+    <div *ngFor="let type of iconTypes" class="content-wrapper d-flex gap-4 flex-wrap overflow-auto p-4 border-bottom">
+        <div class="content-header d-flex gap-4 mb-4">
+            <div class="typeName d-flex align-items-center">
+                <h6 class="text-uppercase">{{ type.name }}</h6>
+            </div>
+    
+            <div class="button d-flex flex-column justify-content-center align-items-center">
+                <button class="text-light border-0 rounded p-2" (click)="openUpload(type.name)"> Add Service <i class="bi bi-box-arrow-in-down"></i></button>
+            </div>
+            <div class="d-flex shandow ms-auto" *ngIf="showUpload===type.name">
+                <div class="content">
+                    <form action="" class="d-flex gap-4">
+                        <!-- <div class="business_id">
+                            <input type="number" id="business_id" class="form-control" [(ngModel)]="newIcon[type.name].business_type_id" placeholder="business ID" name="business_type_id">
+                        </div> -->
+                        <div class="iconName">
+                            <!-- <label for="icon_name">Icon Name</label> -->
+                            <input type="text" id="icon_name" class="form-control" [(ngModel)]="newIcon[type.name].icon_name" placeholder="Icon Name" name="icon_name">
+                        </div>
+                        <div class="iconUpload">
+                            <!-- <label for="icon_file">Upload File</label> -->
+                            <input type="file" class="form-control" (change)="onFileSelected($event, type.name)" name="file" accept=".svg">
+                        </div>
+                        <div class="d-flex flex-column justify-content-center align-items-center ms-auto">
+                            <button type="button" class="btn btn-success" (click)="addIcon(type)">{{isUpdateMode ? 'Update' : 'Add Icon'}}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="icon-container d-flex gap-4 flex-wrap">
+            <ng-container *ngFor="let subtype of groupedIcons[type.name]">
+                <ng-container *ngFor="let item of subtype.icons">
+                  <div class="icons d-flex align-items-center flex-column justify-content-center">
+                    <div class="image">
+                      <img [src]="item.icon_url_display" alt="">
+                    </div>
+                    <div class="title">
+                      <p class="name m-0 lh-lg">{{ item.icon_name }}</p>
+                    </div>
+                    <div class="actions-btn w-100 d-flex justify-content-around">
+                      <i class="bi bi-plus bg-light" (click)="addToNavbar(subtype.subtype_id, item)"></i>
+                      <i class="bi bi-dash bg-light" (click)="removeFromNavbar(subtype.subtype_id, item)"></i>
+                      <i class="bi bi-x bg-light"></i>
+                      <i class="bi bi-pencil-square bg-light" (click)="editIcon(item, type.name)"></i>
+                    </div>
+                  </div>
+                </ng-container>
+            </ng-container>
+        </div>
+    </div>
+</div>
+

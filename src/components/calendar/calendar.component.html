@@ -1,0 +1,32 @@
+<div class="card calendar-card shadow-sm bg-info mb-3">
+    <div class="card-header bg-info d-flex text-white">
+      <h5 class="m-0 d-flex align-items-center">Calendar</h5>
+      <div class="card-tool ms-auto gap-2">
+        <button class="btn btn-sm bg-info"><i class="bi bi-dash"></i></button>
+        <button class="btn-sm btn bg-info"><i class="bi bi-x"></i></button>
+    </div>
+    </div>
+    <div class="card-body text-center">
+      <h6 class="fw-bold mb-3 text-light">July 2025</h6>
+  
+      <div class="d-flex justify-content-between mb-2">
+        <button class="btn btn-sm border">&lt;</button>
+        <button class="btn btn-sm border">&gt;</button>
+      </div>
+  
+      <div class="calendar-grid d-grid gap-2" >
+        <div class="fw-bold text-light">Sun</div>
+        <div class="fw-bold text-light">Mon</div>
+        <div class="fw-bold text-light">Tue</div>
+        <div class="fw-bold text-light">Wed</div>
+        <div class="fw-bold text-light">Thu</div>
+        <div class="fw-bold text-light">Fri</div>
+        <div class="fw-bold text-light">Sat</div>
+
+        <ng-container *ngFor="let date of dates">
+          <div class="text-light pb-2">{{ date }}</div>
+        </ng-container>
+      </div>
+    </div>
+</div>
+

@@ -1,0 +1,168 @@
+ <!-- ToDo List -->
+ <div class="card todoList mb-4" *ngIf="version==='v1'">
+    <div class="card-header d-flex">
+        <p class="card-title m-0"><i class="bi bi-clipboard-check"></i>&nbsp; To Do List</p>
+        <div class="card-tool ms-auto">
+            <ul class="pagination pagination-sm m-0">
+                <li class="page-item"><a href="#" class="page-link"><<</a></li>
+                <li class="page-item"><a href="#" class="page-link">1</a></li>
+                <li class="page-item"><a href="#" class="page-link">2</a></li>
+                <li class="page-item"><a href="#" class="page-link">3</a></li>
+                <li class="page-item"><a href="#" class="page-link">>></a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="card-body">
+        <li class="list d-flex gap-2 mb-1 p-3" *ngFor="let todo of todoLists">
+            <span>
+                <i class="bi bi-three-dots-vertical"></i>
+                <i class="bi bi-three-dots-vertical"></i>
+            </span>
+            <div class="icheck-primary d-inline ml-2">
+                <input type="checkbox" class="me-2" name="" id="'todo' + todo.id" [checked]="todo.done" (click)="toggleTodo(todo)">
+            </div>
+            <label for="'todo' + todo.id" class="text m-0" [ngClass]="{ 'text-decoration-line-through' : todo.done}"> {{todo.task}} </label>
+            <i class="bi bi-pencil-square edit-icon ms-auto cursor-pointer"></i>
+        </li>
+    </div>
+    <div class="card-footer">
+        <div class="button d-flex justify-content-end">
+            <button class="btn" (click)="addItem()"><i class="bi bi-plus"></i>Add item</button>
+        </div>
+    </div>
+</div>
+
+<!-- Latest Orders -->
+<div class="card orders-card" *ngIf="version==='v2'">
+    <div class="card-header d-flex">
+        <h4 class="header m-0">Latest Orders</h4>
+        <div class="card-tool ms-auto d-flex gap-3">
+            <i class="bi bi-dash"></i>
+            <i class="bi bi-x"></i>
+        </div>
+    </div>
+
+    <div class="card-body text-light">
+        <div class="order-table">
+            <table class="table m-0">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Item</th>
+                        <th>Status</th>
+                        <th>Popularity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let order of orders">
+                        <td><a class="text-decoration-none" href="#">{{order.id}}</a></td>
+                        <td> {{order.order}} </td>
+                        <td><span class="badge badge-success">{{order.status}}</span></td>
+                        <td><p>{{order.popularity}}</p></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+        <button class="p-2 border-0 rounded text-light">Place New Order</button>
+        <button class="p-2 border-0 rounded text-light">View All Orders</button>
+    </div>
+</div>
+
+<!-- New Products -->
+<div class="card product-card mb-2" *ngIf="version==='v3'">
+    <div class="card-header d-flex">
+        <h6 class="header m-0">Recently Added Products</h6>
+        <div class="card-tool ms-auto d-flex gap-3">
+            <i class="bi bi-dash"></i>
+            <i class="bi bi-x"></i>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="product-list d-flex gap-3" *ngFor="let product of newProducts; let isLast = last" [ngClass]="{'border-bottom': !isLast}" >
+            <img [src]="product.image"  alt="Product-Image">
+            <div class="product-info d-flex flex-column w-100">
+                <div class="d-flex">
+                    <a class="text-decoration-none fw-bold" href="#">{{product.name}}</a>
+                    <span class="badge bg-info ms-auto">&#8377; {{ product.price}}</span>
+                </div>
+                
+                <span class="product-description"> {{product.description}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-center">
+        <a class="text-decoration-none" href="#"> View All Users </a>
+    </div>
+</div>
+
+<!-- product Card -->
+<div class="card table-card mb-3" *ngIf="version === 'v4'">
+    <div class="card-header d-flex p-3">
+        <h5 class="card-title m-0">Products</h5>
+        <div class="icon ms-auto d-flex gap-4">
+            <i class="bi bi-download"></i>
+            <i class="bi bi-border-width"></i>
+        </div>
+    </div>
+    <div class="card-body p-0">
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Sale</th>
+                        <th>More</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <td class="d-flex gap-2">
+                            <img [src]="product.image" alt="">
+                            <span class="d-flex align-items-center">{{ product.name }}</span>
+                        </td>
+                        <td>{{ product.price }}</td>
+                        <td>{{ product.sales }}</td>
+                        <td><i class="bi bi-search"></i></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+ <!-- Overview Table Card -->
+ <div class="card overview-card mb-3" *ngIf="version==='v5'">
+    <div class="card-header d-flex p-3">
+        <h5 class="card-title m-0">Online Store Overview</h5>
+        <div class="icon ms-auto d-flex gap-4">
+            <i class="bi bi-download"></i>
+            <i class="bi bi-border-width"></i>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+            <p class="icon"><i class="bi bi-arrow-clockwise icon"></i></p>
+            <p class="d-flex flex-column text-end">
+                <span class="fw-bold"><i class="bi bi-arrow-up"></i>12%</span>
+                <span class="text-uppercase">Conversion Rate</span>
+            </p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+            <p class="icon"><i class="bi bi-cart3"></i></p>
+            <p class="d-flex flex-column text-end">
+                <span class="fw-bold"><i class="bi bi-arrow-up"></i>0.8%</span>
+                <span class="text-uppercase">Sales Rate</span>
+            </p>
+        </div>
+        <div class="d-flex justify-content-between align-items-center mb-0">
+            <p class="icon"><i class="bi bi-people"></i></p>
+            <p class="d-flex flex-column text-end">
+                <span class="fw-bold"><i class="bi bi-arrow-down"></i>1%</span>
+                <span class="text-uppercase">registration Rate</span>
+            </p>
+        </div>
+
+    </div>

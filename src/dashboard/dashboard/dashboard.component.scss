@@ -1,0 +1,10 @@
+.sidebar{
+    // width: 250px;
+    overflow-y: auto;
+    height: 100vh;
+}
+.main-content{
+    &::-webkit-scrollbar{
+        display: none;
+    }
+}

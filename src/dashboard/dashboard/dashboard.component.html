@@ -1,0 +1,60 @@
+<div class="d-flex vh-100 w-100">
+    <!-- Sidebar -->
+    <div class="sidebar flex-shrink-0" [class.collapsed]="isSidebarCollapsed">
+      <app-sidebar [collapsed]="isSidebarCollapsed"></app-sidebar>
+    </div>
+  
+    <!-- Main Content -->
+    <div class="main-content flex-grow-1 d-flex flex-column overflow-auto">
+        <app-nav-bar (sidebarToggle)="handleSidebarToggle()"></app-nav-bar>
+        <app-icons></app-icons>
+        
+        <div class="content-wrapper">
+            <div class="container-fluid">
+                <app-header></app-header>
+                <!-- cards -->
+                <div class="content">
+                    <app-cards version="v1"></app-cards>
+                </div>
+                <!-- area chart -->
+                <div class="row">
+                    <div class="col-lg-7 row-left">
+                        <app-area-chart></app-area-chart> 
+                        <app-chats></app-chats>         
+                        <app-tables version="v1"></app-tables>
+                    </div>
+
+                    <div class="col-lg-5 row-right">
+                        <app-maps></app-maps>
+                        <app-line-chart-v1></app-line-chart-v1>
+                        <app-calendar></app-calendar>
+                    </div>
+                </div>
+                <div class="row">
+                    <app-cards version="v2"></app-cards>
+                    <app-area-chart-v2></app-area-chart-v2>
+                </div>
+                <div class="row">
+                    <div class="col-lg-7 row-left">
+                        <app-maps></app-maps>
+                        <app-chats mode="chatsWithMembers"></app-chats>
+                        <app-tables version="v2"></app-tables>
+                    </div>
+                    <div class="col-lg-5 row-right">
+                        <app-cards version="v3"></app-cards>
+                        <app-pie-chart-v1></app-pie-chart-v1>
+                        <app-tables version="v3"></app-tables>
+                    </div>
+                    <div class="col-6">
+                        <app-line-chart-v2></app-line-chart-v2>
+                        <app-tables version="v4"></app-tables>
+                    </div>
+                    <div class="col-6">
+                        <app-bar-chart></app-bar-chart>
+                        <app-tables version="v5"></app-tables>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

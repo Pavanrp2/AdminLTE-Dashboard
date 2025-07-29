@@ -1,1 +1,22 @@
-/* You can add global styles to this file, and also import other style files */
+/* Box sizing and margin/padding reset */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Set global font and prevent horizontal scroll */
+  html, body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+  }
+  
+  /* Make media/content elements responsive */
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }

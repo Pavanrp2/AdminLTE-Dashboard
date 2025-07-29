@@ -1,0 +1,73 @@
+
+<aside class="side-bar text-white d-flex flex-column p-3 shadow" [class.collapsed]="collapsed">
+
+    <a href="#" class="brand-link d-block text-decoration-none text-light ">
+        <img class="brand-logo float-start image-circle me-2" src="assets/rp.png" alt="logo">
+        <span class="brand-text font-weight-light">RP Industries</span>
+    </a>
+
+    <div class="sidebar-scrollable">
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex overflow-hidden ms-2">
+            <div class="image">
+                <img src="assets/rp.png" alt="Photo">
+            </div>
+            <div class="info">
+                <a href="#" class="d-block text-white text-decoration-none">Pavan Patil </a>
+            </div>
+        </div>
+
+        <nav class="mt-2">
+            <ul class="nav nav-sidebar flex-column">
+              <ng-container *ngFor="let section of menuSections">
+                <!-- Section Header -->
+                <li *ngIf="section.section" class="nav-header text-uppercase text-light mt-3 mb-1">
+                  {{ section.section }}
+                </li>
+          
+                <!-- Top-level Items -->
+                <ng-container *ngFor="let item of section.items">
+                  <ng-template [ngTemplateOutlet]="renderMenuItem" [ngTemplateOutletContext]="{ item: item }"></ng-template>
+                </ng-container>
+              </ng-container>
+            </ul>
+          </nav>
+          
+          <!-- Recursive Menu Renderer -->
+          <ng-template #renderMenuItem let-item="item">
+            <li class="nav-item">
+              <!-- If item has children -->
+              <ng-container *ngIf="item.children?.length > 0; else leafLink">
+                <a href="javascript:void(0)" class="nav-link d-flex gap-1 text-light mt-2"
+                   (click)="toggleItem(getId(item.label)); $event.stopPropagation()">
+                  <i [class]="item.icon"></i>
+                  <p class="ms-2 mb-0">{{ item.label }}</p>
+                  <i class="ms-auto bi" [ngClass]="isActive(getId(item.label)) ? 'bi-chevron-up' : 'bi-chevron-down'"></i>
+                </a>
+          
+                <ul *ngIf="isActive(getId(item.label))" class="nav nav-treeview ms-3 mt-1 list-unstyled">
+                  <ng-container *ngFor="let child of item.children">
+                    <ng-template [ngTemplateOutlet]="renderMenuItem" [ngTemplateOutletContext]="{ item: child }"></ng-template>
+                  </ng-container>
+                </ul>
+              </ng-container>
+          
+              <!-- If item has no children -->
+              <ng-template #leafLink>
+                <a *ngIf="item.route; else noRoute"
+                  [routerLink] = "item.route"
+                  routerLinkActive="active"
+                  class="nav-link d-flex gap-1 text-light mt-2">
+                  <i [class]="item.icon"></i>
+                  <p class="ms-2 mb-0">{{ item.label }}</p>
+                </a>
+                <ng-template #noRoute>
+                  <a class="nav-link d-flex gap-1 text-light mt-2 ">
+                    <i [class]="item.icon"></i>
+                    <p class="ms-2 mb-0">{{ item.label }}</p>
+                  </a>
+                </ng-template>
+              </ng-template>
+            </li>
+          </ng-template>
+    </div>
+</aside>

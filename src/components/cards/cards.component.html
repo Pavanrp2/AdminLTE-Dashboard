@@ -1,0 +1,50 @@
+
+<!-- Summary Layout v1-->
+<div class="row mb-5" *ngIf="version==='v1'">
+    <div class="col-lg-3 col-6 " *ngFor="let card of cards_v1">
+        <div class="small-box-v1 card text-light" [ngStyle]="{'background-color': card.bg_color}">
+            <div class="inner d-flex p-2">
+                <div class="texts">
+                    <h3 class="value ">{{card.value}}</h3>
+                    <p>{{card.label}}</p>
+                </div>
+
+                <div class="icon ms-auto p-2">
+                    <i [class]="card.icon"></i>
+                </div>
+            </div>
+            <div class="more-info text-center p-1">
+                <a href="#" class="small-box-footer text-decoration-none text-light ">{{card.footer}}&nbsp;<i class="bi bi-arrow-right-circle-fill"></i></a>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  <!-- Stats Layout v2-->
+<div class="row mb-5" *ngIf="version==='v2'">
+    <div class="col-12 col-sm-6 col-md-3" *ngFor="let card of cards_v2">
+        <div class="small-box-v2 card text-light" [ngStyle]="{'background-color': '#343a40'}">
+            <div class="inner d-flex p-2 gap-3">
+                <div class="icon p-2 d-flex align-items-center justify-content-center rounded" [ngStyle]="{'background-color': card.bg_icon}">
+                    <i [class]="card.icon"></i>
+                </div>
+                <div class="texts">
+                    <h5>{{card.label}}</h5>
+                    <p class="value ">{{card.value}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  
+  <!-- mapCards v3-->
+<div class="boxes" *ngIf="version==='v3'">
+    <div class="info-box w-100 d-flex rounded mb-2 p-2 text-light" *ngFor="let card of mapCards" [ngStyle]="{'background-color': card.bg_color}">
+        <div class="icon d-flex align-items-center justify-content-center"><i [class]= "card.icon"></i></div>
+        <div class="box-content p-1">
+            <p class="d-flex align-items-center justify-content-center">{{card.title}}</p>
+            <p class="fw-bold">{{card.value}}</p>
+        </div>
+    </div>
+</div>
+  
