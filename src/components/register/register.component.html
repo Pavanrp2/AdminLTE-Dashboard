@@ -1,0 +1,76 @@
+<div class="register d-flex justify-content-center align-items-center flex-column vh-100">
+    <div class="register-box">
+        <div class="header">
+            <a href="" class="d-flex justify-content-center align-items-center text-decoration-none mb-3"><b>ADMIN</b>LTE</a>
+        </div>
+    
+        <div class="card p-4 border-0">
+            <p class="text-center p-3 pt-0 text-muted">Register a new membership</p>
+
+            <form class="mb-4" #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)">
+                <div class="mb-3">
+                    <div class="input-group border rounded">
+                        <input type="text" placeholder="Full name" class="form-control border-0" name="name" [(ngModel)]="register.name" #name="ngModel" required>
+                        <i class="bi bi-person-fill fs-5 p-1"></i>
+                    </div>
+                    <div class="empty-input text-danger" *ngIf="registerForm.submitted && name.invalid">
+                        <span>*This field is required </span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="input-group border rounded">
+                        <input type="email" placeholder="Email" class="form-control border-0" name="email" [(ngModel)]="register.email" #email="ngModel" required>
+                        <i class="bi bi-envelope-fill fs-5 p-1"></i>
+                    </div> 
+                    <div class="empty-input" *ngIf="registerForm.submitted && email.invalid">
+                        <span class="text-danger">*This field is required</span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="input-group border rounded">
+                        <input type="password" placeholder="Password" class="form-control border-0" name="password" [(ngModel)]="register.password" #password="ngModel" required>
+                        <i class="bi bi-lock-fill fs-5 p-1"></i>
+                    </div>
+                    <div class="empty-input" *ngIf="registerForm.submitted && password.invalid">
+                        <span class="text-danger">*This fiels is required</span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="input-group border rounded">
+                        <input type="password" placeholder="Retype password" class="form-control border-0" name="retype_password" [(ngModel)]="register.retype_password" #retype_password="ngModel" required>
+                        <i class="bi bi-lock-fill fs-5 p-1"></i>
+                    </div>
+                    <div class="empty-input" *ngIf="registerForm.submitted && register.password !== register.retype_password">
+                        <span class="text-danger">Passwords do not match</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8 d-flex gap-2">
+                        <input type="checkbox">
+                        <label for="agreeTerms" class="d-flex align-items-center">I agree to the&nbsp;<a href="" class="text-decoration-none">Terms</a></label>
+                    </div>
+                    <div class="col-4">
+                        <div class="button text-center rounded">
+                            <button type="submit" class="btn text-light">Register</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+            <div class="social-media">
+                <p class="text-center mb-3">- OR -</p>
+                <a href="" class="text-decoration-none d-flex gap-2 text-light bg-primary rounded p-2 justify-content-center mb-2">
+                    <i class="bi bi-facebook"></i>Sign up using Facebook
+                </a>
+                <a href="" class="text-decoration-none d-flex justify-content-center rounded bg-danger text-light p-2 gap-2 mb-3">
+                    <i class="bi bi-google"></i>Sign up using Google+
+                </a>
+                <a href="" class="text-decoration-none mb-3">I already have a membership</a>
+            </div>
+        </div>
+    </div>
+</div>

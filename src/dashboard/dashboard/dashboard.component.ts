@@ -16,13 +16,14 @@ import { BarChartComponent } from '../../charts-component/bar-chart/bar-chart.co
 import { CommonModule } from '@angular/common';
 import { IconsComponent } from '../../components/icons/icons.component';
 import { LiveCalendarComponent } from '../../components/live-calendar/live-calendar.component';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule,SidebarComponent,NavBarComponent, IconsComponent, HeaderComponent, CardsComponent,AreaChartComponent,
-    AreaChartV2Component, PieChartV1Component, LineChartV2Component,BarChartComponent, ChatsComponent, 
-    LineChartV1Component, MapsComponent, CalendarComponent, TablesComponent],
+  imports: [CommonModule,RouterModule, SidebarComponent,NavBarComponent, IconsComponent, HeaderComponent, CardsComponent,
+    AreaChartComponent,AreaChartV2Component, PieChartV1Component, LineChartV2Component,BarChartComponent, ChatsComponent, 
+    LineChartV1Component, MapsComponent, LiveCalendarComponent, TablesComponent],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss'
 })

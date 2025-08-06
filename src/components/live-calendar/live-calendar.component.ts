@@ -19,11 +19,10 @@ export class LiveCalendarComponent implements OnInit {
   ngOnInit(): void {
     this.currentMonthIndex = this.today.getMonth();
     this.currentYear = this.today.getFullYear();
-    this.generateCalendar( this.currentMonthIndex, this.currentYear);
-      
+    this.generateCalendar(this.currentYear, this.currentMonthIndex);
   }
 
-  generateCalendar(month:number, year:number): void{
+  generateCalendar(year:number, month:number): void{
     const date = new Date(year, month);
     this.currentMonth = date.toLocaleString('default', {month:'long'});
     this.currentMonthIndex = date.getMonth();
@@ -45,7 +44,7 @@ export class LiveCalendarComponent implements OnInit {
 
     this.weeks = [];
     for(let i=0; i<daysArray.length; i+=7){
-      this.weeks.push(daysArray.slice(i, i+=7))
+      this.weeks.push(daysArray.slice(i, i+7))
     }
   }
   changeMonth(step:number): void {
@@ -60,7 +59,7 @@ export class LiveCalendarComponent implements OnInit {
       newYear--
     }
 
-    this.generateCalendar(newMonth, newYear)
+    this.generateCalendar(newYear, newMonth)
   }
   isToday(day:number | null): boolean {
     if(day===null) return false;

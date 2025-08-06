@@ -5,3 +5,9 @@ td{
 .date{
     color: red;
 }
+
+@media (max-width: 768px){
+    td{
+        height: 40px;
+    }
+}

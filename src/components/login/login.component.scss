@@ -1,0 +1,30 @@
+.login{
+    background-color: #e9ecef;
+    a{
+        color: #494057;
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    .card{
+        width: 400px;
+        border-radius: 0;
+        .card-header{
+            background-color: #ffffff;
+        }
+        .button{
+            background-color: #13274E;
+        }
+        a{
+            font-size: 1rem;
+            color: #ffffff;
+            font-weight: 400;
+        }
+        input[type="checkbox"]{
+            width: 20px;
+        }
+        input:focus, input:focus-visible, input:focus-within {
+            outline: none !important;
+            box-shadow: none !important;
+        }
+    }
+}

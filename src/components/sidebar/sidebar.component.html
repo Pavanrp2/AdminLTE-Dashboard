@@ -56,6 +56,7 @@
                 <a *ngIf="item.route; else noRoute"
                   [routerLink] = "item.route"
                   routerLinkActive="active"
+                  [routerLinkActiveOptions]="{exact : true}"
                   class="nav-link d-flex gap-1 text-light mt-2">
                   <i [class]="item.icon"></i>
                   <p class="ms-2 mb-0">{{ item.label }}</p>

@@ -1,0 +1,66 @@
+<div class="login d-flex align-items-center justify-content-center flex-column vh-100">
+    
+    <div class="login-header mb-3">
+        <a href="#" class="text-decoration-none d-flex justify-content-center"><b>Admin</b>LTE</a>
+    </div>
+    <div class="card border-0">
+        <div class="card-body ">
+
+            <p class="m-0 p-4 pt-2 d-flex justify-content-center text-muted">Sign in to start your session</p>
+
+            <form action="" class="mb-3" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
+                <div class="mb-3">
+                    <div class="input-group border rounded">
+                        <input type="email" placeholder="Email" class="form-control border-0" name="email" id="email" [(ngModel)]="login.email" required #email="ngModel">
+                        <div class="icon d-flex ">
+                            <i class="bi bi-envelope-fill fs-5 px-2 py-1 text-muted"></i>
+                        </div>
+                    </div>
+                    <div class="empty-input text-danger" *ngIf="loginForm.submitted && email.invalid">
+                        <span>*This field is required</span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="input-group border rounded">
+                        <input type="password" placeholder="Password" class="form-control border-0" name="password" id="password" [(ngModel)]="login.password" required #password="ngModel">
+                        <div class="icon d-flex align-items-center ">
+                            <i class="bi bi-lock-fill fs-5 px-2 py-1 text-muted "></i>
+                        </div>
+                    </div>
+                    <div class="empty-input text-danger" *ngIf="loginForm.submitted && password.invalid"> 
+                        <span>*This field is required</span>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-8 d-flex justify-content-start align-items-center">
+                        <div class="check-box d-flex gap-2">
+                            <input type="checkbox">
+                            <label for="remember" class="text-muted"><b>Remember Me</b></label>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="button rounded d-flex align-items-center justify-content-center">
+                            <button type="submit" class="btn text-light">Sign In</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="social-media mb-3 d-flex flex-column">
+                <p class="d-flex justify-content-center align-items-center">- OR -</p>
+                <a href="#" class="bg-primary rounded  d-flex justify-content-center text-decoration-none p-2 mb-2">
+                    <i class="bi bi-facebook d-flex gap-2 align-items-center">Sign in using Facebook</i>
+                </a>
+                <a href="#" class="bg-danger rounded text-decoration-none d-flex justify-content-center p-2 mb-2">
+                    <i class="bi bi-google d-flex align-items-center gap-2">Sign in using Google+</i>
+                </a>
+            </div>
+            <div class="forgot-password">
+                <a href="" class="d-flex text-decoration-none text-primary mb-2">I forgot my password</a>
+                <a href="" class="text-primary text-decoration-none mb-2">Register a new membership</a>
+            </div>
+        </div>
+    </div>
+
+</div>

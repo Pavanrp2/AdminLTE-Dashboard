@@ -1,0 +1,23 @@
+.register{
+    background-color: #e9ecef;
+    .register-box{
+        width:360px
+    }
+    .header a{
+        color: #495057;
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    .button{
+        background-color: #13274E;
+    }
+    .col-8{
+        font-weight: 700;
+        input[type="checkbox"]{
+            width: 20px;
+        }
+    }
+    span{
+        font-size: 0.8rem;
+    }
+}

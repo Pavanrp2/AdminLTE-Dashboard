@@ -32,11 +32,7 @@ export class SidebarComponent {
         {
           label: 'Dashboard',
           icon: 'bi bi-speedometer2',
-          children: [
-            { label: 'Dashboard v1', icon: 'bi bi-circle', route: '/dashboard/dashboard-v1' },
-            { label: 'Dashboard v2', icon: 'bi bi-circle', route: '/dashboard/dashboard-v2' },
-            { label: 'Dashboard v3', icon: 'bi bi-circle', route: '/dashboard/dashboard-v3' }
-          ]
+          route: 'dashboard'
         },
         {
           label: 'Services',
@@ -103,7 +99,8 @@ export class SidebarComponent {
       items: [
         {
           label: 'Calendar',
-          icon: 'bi bi-calendar3'
+          icon: 'bi bi-calendar3',
+          route: 'calendar'
         },
         {
           label: 'Gallery',

@@ -1,5 +1,5 @@
 <!-- Icons Navbar -->
-<div class="navbar bg-light p-2 shadow mb-4">
+<nav class="navbar bg-light p-2 shadow mb-4 navbar-expand">
     <div class="content-wrapper d-flex gap-4 flex-nowrap overflow-auto">
         <div class="icons d-flex flex-column align-items-center justify-content-center" 
         *ngFor="let icon of navbarIcons; let i = index"
@@ -18,10 +18,10 @@
         <i class="bi bi-three-dots-vertical"></i>
         <span>More</span>
     </div>
-</div>
+</nav>
 
 <!-- Popup More Option -->
-<div class="moreOption bg-light" > <!-- *ngIf="moreOptions" -->
+<div class="moreOption bg-light mb-4" *ngIf="moreOptions"> <!--  -->
     <div *ngFor="let type of iconTypes" class="content-wrapper d-flex gap-4 flex-wrap overflow-auto p-4 border-bottom">
         <div class="content-header d-flex gap-4 mb-4">
             <div class="typeName d-flex align-items-center">
